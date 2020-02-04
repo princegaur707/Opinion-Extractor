@@ -9,3 +9,4 @@
     Topic Modelling - Latent Dirichlet Allocation (LDA) 
     LDA for visualising pool of words 
     Representations using matplotlib 
+    Apply Deep Learning 
