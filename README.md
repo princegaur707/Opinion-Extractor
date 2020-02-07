@@ -1,7 +1,7 @@
 # text-mining
     Regular Expression
     Stopword Removal, Stemming
-    Sentiment Analysis
+    Sentiment Analysis using Text Blob
     Creating features from text 
     Classifiers: Random forest, SVM, Logistic Regression
     Term Frequency and Inverse Document Frequency (TF-IDF)
