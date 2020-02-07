@@ -5,8 +5,7 @@
     Creating features from text for classifiers
     Classifiers: Random forest, SVM, Logistic Regression
     Term Frequency and Inverse Document Frequency (TF-IDF)
-    Visualising text data and model
+    Visualising text data and model with matplotlib
     Topic Modelling - Latent Dirichlet Allocation (LDA) 
     LDA for visualising pool of words 
-    Representations using matplotlib 
-    Apply Deep Learning(word embedding)
+    Deep Learning(word embedding)
