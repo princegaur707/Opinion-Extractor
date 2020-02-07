@@ -1,6 +1,6 @@
 # text-mining
     Regular Expression for cleaning 
-    Stopword Removal, Stemming
+    Stopword Removal, Stemming for cleaning
     Sentiment Analysis using Text Blob
     Creating features from text 
     Classifiers: Random forest, SVM, Logistic Regression
