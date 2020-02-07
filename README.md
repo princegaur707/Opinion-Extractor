@@ -1,5 +1,5 @@
 # text-mining
-    Regular Expression
+    Regular Expression for cleaning 
     Stopword Removal, Stemming
     Sentiment Analysis using Text Blob
     Creating features from text 
