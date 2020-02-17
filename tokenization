@@ -1,0 +1,27 @@
+
+nlp = spacy.load('en_core_web_sm')
+
+df=pd.read_csv('f_a1.csv')
+df.columns=['index','date','tweet','label']        
+#df = df.sample(frac=0.1, random_state=10)
+
+print (df.head())     
+
+tweets=df['tweet']
+
+import spacy
+
+nlp = spacy.load('en_core_web_sm')
+i=0
+count=0
+
+list2=[]
+for tweet in tweets:      
+    doc = nlp(tweet)
+    list1=[]
+    for token in doc:
+            if token.is_stop==False:
+                print(token.text)
+                list1.append(token.text)    
+    list2.append(list1)       
+    
