@@ -26,6 +26,19 @@ for tweet in range(0, len(X)):
  
     # Remove single characters from the start
     processed_tweet = re.sub(r'\^[a-zA-Z]\s+', ' ', processed_tweet) 
+    #Arranging
+    import csv
+a=df['i']
+d=df['date']
+l=df['label']
+i=0
+for entry in processed_tweets:
+    with open ('f_a1.csv','a', encoding="utf-8") as res:        
+        writer=csv.writer(res)           
+        s="{},{},{},{}\n".format(a[i],d[i],entry,l[i])
+        res.write(s)
+        print (s)
+    i+=1     
  
     # Substituting multiple spaces with single space
     processed_tweet= re.sub(r'\s+', ' ', processed_tweet, flags=re.I)
