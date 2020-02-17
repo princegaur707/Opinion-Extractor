@@ -1,0 +1,46 @@
+import re  
+
+import spacy
+
+nlp = spacy.load('en_core_web_sm')
+
+processed_tweets=[]
+
+for tweet in range(0, len(X)):  
+    processed_tweet = re.sub(r'\W', ' ', str(X[tweet]))
+
+            
+    # Remove all the special characters
+    
+    processed_tweet = re.sub(r'http\S+', ' ', processed_tweet)
+    
+    #processed_tweet = re.sub(r'https?:\/\/+', ' ', processed_tweet)
+    
+    #processed_tweet=re.sub(r'\w+:\/{2}[\d\w-]+(\.[\d\w-]+)*(?:(?:\/[^\s/]*))*', ' ',processed_tweet)
+    
+    processed_tweet=re.sub(r'www\S+', ' ', processed_tweet)
+    
+    processed_tweet=re.sub(r'co \S+', ' ', processed_tweet)
+    # remove all single characters
+    processed_tweet = re.sub(r'\s+[a-zA-Z]\s+', ' ', processed_tweet)
+ 
+    # Remove single characters from the start
+    processed_tweet = re.sub(r'\^[a-zA-Z]\s+', ' ', processed_tweet) 
+ 
+    # Substituting multiple spaces with single space
+    processed_tweet= re.sub(r'\s+', ' ', processed_tweet, flags=re.I)
+ 
+    # Removing prefixed 'b'
+    processed_tweet = re.sub(r'^b\s+', ' ', processed_tweet)
+    
+    processed_tweet = re.sub(r'\d','',processed_tweet)
+    
+    processed_tweet= re.sub(r'\s+', ' ', processed_tweet, flags=re.I)
+
+ 
+    # Converting to Lowercase
+    processed_tweet = processed_tweet.lower()
+    
+    processed_tweets.append(processed_tweet)
+    
+print (processed_tweets)    
