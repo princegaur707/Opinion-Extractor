@@ -1,0 +1,83 @@
+#Determining sentiment with textblob python library
+prediction_text="Did you know @CLEMetroSchools students wrote produced and perfor
+pts=[]
+pt = re.sub(r'\W', ' ', str(prediction_text))
+pt = re.sub(r'http\S+', ' ', pt)
+pt=re.sub(r'www\S+', ' ', pt)
+pt=re.sub(r'co \S+', ' ', pt)
+pt = re.sub(r'\s+[a-zA-Z]\s+', ' ', pt)
+pt = re.sub(r'\^[a-zA-Z]\s+', ' ', pt)
+pt= re.sub(r'\s+', ' ', pt, flags=re.I)
+pt = re.sub(r'^b\s+', ' ', pt)
+pt = re.sub(r'\d','',pt)
+pt= re.sub(r'\s+', ' ', pt, flags=re.I)
+pt = pt.lower()
+pts.append(pt)
+#print (pt)
+nlp = spacy.load('en_core_web_sm')
+doc = nlp(pt)
+list3=[]
+list4=[]
+for token in doc:
+ if token.is_stop==False:
+ #print(token.text)
+ list3.append(token.text)
+#print (pt)
+list3=' '.join(list3)
+print (list3)
+countnoun=0
+countadj=0
+countverb=0
+countadp=0
+countadv=0
+countnum=0
+countaux=0
+countconj=0
+countdet=0
+countintj=0
+countpart=0
+countpron=0
+countpropn=0
+countpropn=0
+countpunct=0
+countsconj=0
+countx=0
+doc = nlp(list3)
+for token in doc:
+ if token.pos_=='NOUN':
+ countnoun+=1
+ if token.pos_=='ADJ':
+ countadj+=1
+ if token.pos_=='VERB':
+ countverb+=1
+ if token.pos_=='ADP':
+ countadp+=1
+ if token.pos_=='ADV':
+ countadv+=1
+ if token.pos_=='NUM':
+ countnum+=1
+ if token.pos_=='AUX':
+ countaux+=1
+ if token.pos_=='CONJ':
+ countconj+=1
+ if token.pos_=='DET':
+ countdet+=1
+ if token.pos_=='INTJ':
+ countintj+=1
+ if token.pos_=='PART':
+ countpart+=1
+ if token.pos_=='PRON':
+ countpron+=1
+ if token.pos_=='PROPN':
+ countpropn+=1
+ if token.pos_=='PUNCT':
+ countpunct+=1
+ if token.pos_=='SCONJ':
+ countsconj+=1
+ if token.pos_=='X':
+ countx+=1
+
+from textblob import TextBlob
+analysis = TextBlob(list3)
+s="{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}".format(countnoun,countverb
+print (s)
