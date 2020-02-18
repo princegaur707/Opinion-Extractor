@@ -1,0 +1,11 @@
+a=df['index']
+d=df['date']
+l=df['label']
+i=0
+for entry in list2:
+ with open ('f_a2.csv','a',encoding="utf-8") as res:
+ writer=csv.writer(res)
+ s="{},{},{},{}\n".format(a[i],d[i],' '.join(entry),l[i])
+ res.write(s)
+ print (s)
+ i+=1 
