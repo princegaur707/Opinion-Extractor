@@ -1,0 +1,83 @@
+#17 differnt pos tags have been used
+import csv
+import pandas as pd
+import spacy
+nlp = spacy.load('en_core_web_sm')
+df=pd.read_csv('f_a2.csv')
+df.columns=['index','date','Tweet','label']
+A=df['date']
+B=df['index']
+C=df['label']
+tweets=df['Tweet']
+import spacy
+nlp = spacy.load('en_core_web_sm')
+i=0
+j=0
+for tweet in tweets:
+
+
+
+ count=0
+ countadj=0
+ countverb=0
+ countadp=0
+ countadv=0
+ countnum=0
+ countaux=0
+ countconj=0
+ countdet=0
+ countintj=0
+ countpart=0
+ countpron=0
+ countpropn=0
+ countpropn=0
+ countpunct=0
+ countsconj=0
+ countx=0
+ doc = nlp(tweet)
+ for token in doc:
+ if token.pos_=='NOUN':
+ count+=1
+ if token.pos_=='ADJ':
+ countadj+=1
+ if token.pos_=='VERB':
+ countverb+=1
+ if token.pos_=='ADP':
+ countadp+=1
+ if token.pos_=='ADV':
+ countadv+=1
+ if token.pos_=='NUM':
+ countnum+=1
+ if token.pos_=='AUX':
+ countaux+=1
+ if token.pos_=='CONJ':
+ countconj+=1
+ if token.pos_=='DET':
+ countdet+=1
+ if token.pos_=='INTJ':
+ countintj+=1
+ if token.pos_=='PART':
+ countpart+=1
+ if token.pos_=='PRON':
+ countpron+=1
+ if token.pos_=='PROPN':
+ countpropn+=1
+ if token.pos_=='PUNCT':
+ countpunct+=1
+ if token.pos_=='SCONJ':
+ countsconj+=1
+ if token.pos_=='X':
+ countx+=1
+
+ print (f"nouns in tweet at {i} index are {count} verbs are {countverb} adject
+
+ with open ('f_a3.csv','a',encoding="utf-8") as res:
+ from textblob import TextBlob
+ analysis = TextBlob(tweet)
+ if C[i]=='for':
+ label=1
+ else:
+ label=0
+ s="{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n".form
+ res.write(s)
+ i+=1 
