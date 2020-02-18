@@ -1,3 +1,4 @@
+#iterations1 
 a=df['index']
 d=df['date']
 l=df['label']
@@ -9,3 +10,12 @@ for entry in list2:
  res.write(s)
  print (s)
  i+=1 
+ 
+#iterations 2
+df = pd.read_csv('f_a2.csv')
+df.columns=['index','date','Tweet','label']
+print (f"Shape of dataframe is {df.shape}")
+df.head()
+X=df['Tweet']
+Z=df['Tweet'].to_string(index=False)
+print (Z)
