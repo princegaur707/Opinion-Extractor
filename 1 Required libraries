@@ -1,6 +1,7 @@
 #Code from starting
 import pandas as pd
 import numpy as np
+import pickle
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 import seaborn as sns
@@ -24,4 +25,4 @@ import numpy as np
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
-import pickle
+
