@@ -1,3 +1,14 @@
 from sklearn.ensemble import RandomForestClassifier
 model=RandomForestClassifier(n_estimators=200,criterion='entropy')
 model.fit(X_train,y_train)
+from sklearn.metrics import roc_auc_score
+from sklearn import preprocessing
+def multiclass_roc_auc_score(y_test, y_pred, average="macro"):
+ lb = preprocessing.LabelBinarizer()
+ lb.fit(y_test)
+ y_test = lb.transform(y_test)
+ y_pred = lb.transform(y_pred)
+ return roc_auc_score(y_test, y_pred, average=average)
+# Predict the transformed test documents
+predictions = model.predict((X_test))
+print('AUC: ', multiclass_roc_auc_score(y_test, predictions))
