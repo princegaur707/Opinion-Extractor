@@ -1,0 +1,21 @@
+from sklearn.feature_extraction.text import CountVectorizer
+# Fit the CountVectorizer to the training data
+vect = CountVectorizer().fit(X_train)
+X_train_vectorized = vect.transform(X_train)
+X_train_vectorized
+print ((X_train_vectorized.shape))
+from sklearn.linear_model import LogisticRegression
+# Train the model
+model = LogisticRegression(solver='lbfgs', multi_class='auto')
+model.fit(X_train_vectorized, y_train)
+from sklearn.metrics import roc_auc_score
+from sklearn import preprocessing
+def multiclass_roc_auc_score(y_test, y_pred, average="macro"):
+ lb = preprocessing.LabelBinarizer()
+ lb.fit(y_test)
+ y_test = lb.transform(y_test)
+ y_pred = lb.transform(y_pred)
+ return roc_auc_score(y_test, y_pred, average=average)
+# Predict the transformed test documents
+predictions = model.predict(vect.transform(X_test))
+print('AUC: ', multiclass_roc_auc_score(y_test, predictions))
