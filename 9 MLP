@@ -1,0 +1,17 @@
+def mlpclassifier(X_train, X_test, y_train, y_test):
+
+ from sklearn.neural_network import MLPClassifier
+
+ mlp = Pipeline([('vect', CountVectorizer()),
+ ('tfidf', TfidfTransformer()),
+ ('clf', MLPClassifier(hidden_layer_sizes=(50,50,50))),
+ ])
+ mlp.fit(X_train, y_train)
+ y_pred = mlp.predict(X_test)
+
+ print('accuracy %s' % accuracy_score(y_pred, y_test))
+def train_test(X,y):
+ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random
+ print("Results of MLP Classifier")
+ mlpclassifier(X_train, X_test, y_train, y_test)
+ train_test(V,cat)
