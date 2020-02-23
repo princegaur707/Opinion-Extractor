@@ -1,0 +1,7 @@
+from gensim import corpora, models
+tfidf = models.TfidfModel(bow_corpus)
+corpus_tfidf = tfidf[bow_corpus]
+from pprint import pprint
+for doc in corpus_tfidf:
+ pprint(doc)
+ break
