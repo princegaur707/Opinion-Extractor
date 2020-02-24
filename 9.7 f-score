@@ -1,0 +1,15 @@
+flairs=['for','against']
+cat = df.target
+V = df.tweet
+X_train, X_test, y_train, y_test = train_test_split( V, cat, test_size=0.3, rando
+print("Results of Random Forest")
+from sklearn.ensemble import RandomForestClassifier
+
+ranfor = Pipeline([('vect', CountVectorizer()),
+ ('tfidf', TfidfTransformer()),
+ ('clf', RandomForestClassifier(n_estimators = 1000, random_stat
+ ])
+ranfor.fit(X_train, y_train)
+y_pred = ranfor.predict(X_test)
+print('accuracy %s' % accuracy_score(y_pred, y_test))
+print(classification_report(y_test, y_pred,target_names=flairs))
