@@ -12,3 +12,21 @@ def multiclass_roc_auc_score(y_test, y_pred, average="macro"):
 # Predict the transformed test documents
 predictions = model.predict((X_test))
 print('AUC: ', multiclass_roc_auc_score(y_test, predictions))
+vect = CountVectorizer(min_df=5, ngram_range=(1,2)).fit(X_train)
+X_train_vectorized = vect.transform(X_train)
+len(vect.get_feature_names())
+X_train_vectorized = vect.transform(X_train)
+X_train_vectorized.todense()
+from sklearn.metrics import roc_auc_score
+from sklearn import preprocessing
+from sklearn.ensemble import RandomForestClassifier
+def multiclass_roc_auc_score(y_test, y_pred, average="macro"):
+ lb = preprocessing.LabelBinarizer()
+ lb.fit(y_test)
+ y_test = lb.transform(y_test)
+ y_pred = lb.transform(y_pred)
+ return roc_auc_score(y_test, y_pred, average=average)
+model = RandomForestClassifier(n_estimators=200,criterion='entropy')
+model.fit(X_train_vectorized, y_train)
+predictions = model.predict(vect.transform(X_test))
+print('AUC: ', multiclass_roc_auc_score(y_test, predictions))
