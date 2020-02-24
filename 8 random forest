@@ -13,6 +13,16 @@ def multiclass_roc_auc_score(y_test, y_pred, average="macro"):
 predictions = model.predict((X_test))
 print('AUC: ', multiclass_roc_auc_score(y_test, predictions))
 vect = CountVectorizer(min_df=5, ngram_range=(1,2)).fit(X_train)
+------------------------------------------------------------------------
+feature_names = np.array(vect.get_feature_names())
+sorted_coef_index = model.coef_[0].argsort()
+print('Smallest Coefs:\n{}\n'.format(feature_names[sorted_coef_index[:10]]))
+print('Largest Coefs: \n{}'.format(feature_names[sorted_coef_index[:-11:-1]]))
+-------------------------------------------------------------------------
+vect = CountVectorizer(min_df=5, ngram_range=(1,2)).fit(X_train)
+X_train_vectorized = vect.transform(X_train)
+len(vect.get_feature_names())
+
 X_train_vectorized = vect.transform(X_train)
 len(vect.get_feature_names())
 X_train_vectorized = vect.transform(X_train)
