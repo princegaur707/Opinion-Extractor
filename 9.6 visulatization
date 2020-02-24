@@ -1,0 +1,16 @@
+df1 = pd.read_csv('f_a3.csv')
+df1.columns=['index','date','tweet','countnoun','countverb','countadj','countadp']
+df1
+df_for=df1[df1['target']==1]
+df_for['day']=df['date'].apply(lambda x :x[8:10])
+fig, ax = plt.subplots(figsize=(15,7))
+#temp_min = df_for.groupby(['date'])['countnoun','countverb','countadj','countadp
+temp_min1 = df_for.groupby(['day'])['sentiment_score'].agg({'m': np.mean}).unstac
+ax.set_xlabel('Day Of Post',fontsize=20)
+ax.set_ylabel('Mean Sentiment Score',fontsize=20)
+ax.set_title("Relation between mean Sentiment Score and day of post for 'FOR LABE
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 15)
+'''temp_min2 = df_for.groupby(['day'])['countnoun'].agg({'m': np.mean}).unstack()
+temp_min3 = df_for.groupby(['day'])['countverb'].agg({'m': np.mean}).unstack().pl
+temp_min4 = df_for.groupby(['day'])['countadj'].agg({'m': np.mean}).unstack().plo

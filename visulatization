@@ -1,3 +1,0 @@
-df1 = pd.read_csv('f_a3.csv')
-df1.columns=['index','date','tweet','countnoun','countverb','countadj','countadp']
-df1
