@@ -5,3 +5,5 @@ from pprint import pprint
 for doc in corpus_tfidf:
  pprint(doc)
  break
+for idx, topic in lda_model.print_topics(-1):
+ print('Topic: {} \nWords: {}'.format(idx, topic))
