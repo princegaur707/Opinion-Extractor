@@ -14,3 +14,20 @@ ax.tick_params(axis = 'both', which = 'major', labelsize = 15)
 '''temp_min2 = df_for.groupby(['day'])['countnoun'].agg({'m': np.mean}).unstack()
 temp_min3 = df_for.groupby(['day'])['countverb'].agg({'m': np.mean}).unstack().plot
 temp_min4 = df_for.groupby(['day'])['countadj'].agg({'m': np.mean}).unstack().plot
+-----------------------------------------------------------------------------------------
+import matplotlib.pyplot as plt
+import numpy as np
+x1 = [1,2,3,4,5]
+x2= [1,2,3,4,5,6,7,8,9,10]
+y1=accuracy_arr
+y2=time_arr10
+sns.set_style("darkgrid")
+fig, ax = plt.subplots(figsize=(15,7))
+plt.plot(x1,y1,'r-',label='5-Fold Classification')
+plt.plot(x2,y2,'b-',label='10-Fold Classification')
+ax.legend( prop={'size': 18})
+ax.set_xlabel('Folds',fontsize=20)
+ax.set_ylabel('Accuracy',fontsize=20)
+ax.set_title("Effect of varying Folds on Accuracy",fontsize=20)
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 15)
