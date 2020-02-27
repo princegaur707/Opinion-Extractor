@@ -6,3 +6,7 @@ from sklearn.model_selection import cross_validate
 clf = make_pipeline(TfidfVectorizer(), svm.SVC(kernel='linear'))
 scores10 = cross_validate(clf, df1['tweet'], df1['target'], scoring=['accuracy'],
 print(scores10)
+scores['test_accuracy']
+accuracy_arr=scores['test_accuracy']
+print (accuracy_arr)
+
