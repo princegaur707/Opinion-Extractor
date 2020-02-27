@@ -31,3 +31,23 @@ ax.set_ylabel('Accuracy',fontsize=20)
 ax.set_title("Effect of varying Folds on Accuracy",fontsize=20)
 ax = plt.gca()
 ax.tick_params(axis = 'both', which = 'major', labelsize = 15)
+---------------------------------------------------------------------------------------
+import matplotlib.pyplot as plt
+import numpy as np
+x = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9]
+y1=acc_train
+y2=acc_log_train
+y3=acc_svm_train
+y4=acc_k_train
+sns.set_style("darkgrid")
+fig, ax = plt.subplots(figsize=(15,7))
+plt.plot(x,y1,'r-',label='Random Forest Classifier')
+plt.plot(x,y2,'b-',label='Logistic Regression')
+plt.plot(x,y3,'g-',label='SVM Classifier')
+plt.plot(x,y4,'m-',label='KNN Classifier')
+ax.legend( prop={'size': 18})
+ax.set_xlabel('Fraction of train data',fontsize=20)
+ax.set_ylabel('Accuracy of classifier',fontsize=20)
+ax.set_title("Effect of varying train data on Classifier Accuracy",fontsize=20)
+ax = plt.gca()
+ax.tick_params(axis = 'both', which = 'major', labelsize = 15)
