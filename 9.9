@@ -1,0 +1,8 @@
+#TFIDF through pipeline
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import make_pipeline
+from sklearn.model_selection import cross_validate
+clf = make_pipeline(TfidfVectorizer(), svm.SVC(kernel='linear'))
+scores10 = cross_validate(clf, df1['tweet'], df1['target'], scoring=['accuracy'],
+print(scores10)
